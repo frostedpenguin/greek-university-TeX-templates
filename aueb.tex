@@ -1,5 +1,10 @@
 \documentclass[17pt]{extarticle}
 % \usepackage[T1]{fontenc}
+% brackets !! BEFORE FONT
+\usepackage{amsmath}
+% cross out math
+\usepackage[makeroom]{cancel}
+% encoding and language shit
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 %english to greek change
@@ -11,29 +16,61 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{blindtext}
+% urls and refs in general
 \usepackage{hyperref}
 \usepackage{graphicx}
+% table colour
+\usepackage[table]{xcolor}
+% ref costumization etc
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=magenta,
-    pdftitle={Overleaf Example},
+    pdftitle={aueb template},
     pdfpagemode=FullScreen,
     }
-\title{\includegraphics[scale = 0.5]{images/aueb.jpg}\\
-\Large Προαιρετική εργασία χρονολογικές σειρές}
-\author{Παναγιώτης Κάτσος}
-\date{Φεβρουάριος 2022}
+% show text as it is
+\usepackage{verbatim}
+% grahs trees etc
+\usepackage{tikz}
+% \usetikzlibrary{graphdrawing.trees}
+\usepackage{qtree}
+\title{\includegraphics[scale=0.5]{images/aueb.jpg} \\
+\Large 1η εργασία Θεωρία και υποδείγματα βελτιστοποίησης}
+\author{Παναγιώτης Κάτσος 3180077}
+\date{Απρίλιος 2022}
 \setlength{\headheight}{22.0pt}
 \lhead{\today}
 \rhead{P. Katsos }
 \rfoot{\thepage\ of \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.5pt}
+\renewcommand\textbullet{\ensuremath{\bullet}}
 \renewcommand{\footrulewidth}{0.5pt}
 \pagestyle{fancy}
 \begin{document}
 \begin{titlepage}
   \maketitle
 \end{titlepage}
+\section*{1η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
+\section*{2η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
+\section*{3η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
+\section*{4η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
+\section*{5η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
+\section*{6η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
+\section*{7η Άσκηση}
+\subsection*{i)}
+\subsection*{ii)}
 \end{document}
