@@ -1,24 +1,28 @@
-\documentclass[14pt]{extarticle}
-% brackets !! BEFORE FONT
+\documentclass[12pt]{article} % brackets !! BEFORE FONT
 % extra math symbols
+% \usepackage{autoaligne}
 \usepackage{ mathrsfs }
 \usepackage{amsmath}
 \usepackage{caption}
 \usepackage{subcaption}
-% cross out math
 \usepackage{verbatim}
+% cross out math
 \usepackage[makeroom]{cancel}
 % encoding and language shit
 \usepackage{polyglossia}
 \setdefaultlanguage{greek}
 \setotherlanguages{english}
-\usepackage{fontspec}
 %images
-\setmainfont[Script=Greek]{GFS Artemisia}
+\usepackage{fontspec}
+% setting greek font 
+\newfontfamily\greekfont[Script=Greek]{GFS Neohellenic}
+\newfontfamily\greekfontsf[Script=Greek]{GFS Neohellenic}
+% setting greek math font 
+\usepackage{gfsneohellenicot}
 % show text as it is
 \usepackage{verbatim}
 % font for verbatim
-\setmonofont{DejaVu Sans Mono}
+% \setmonofont{DejaVu Sans Mono}
 % remove annoying page padding
 \usepackage[includeheadfoot,margin=0.5in]{geometry}
 % fancy page header
@@ -33,14 +37,16 @@
 \usepackage{graphicx}
 % table color
 \usepackage[table]{xcolor}
-
+\usepackage{pgfplots}
+ \pgfplotsset{compat=1.18}
+\usepgfplotslibrary{external}
 % hyper link customization etc
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=magenta,
-    pdftitle={aueb template},
+    pdftitle={game theory},
     pdfpagemode=FullScreen,
     }
 % for inserting code
@@ -48,14 +54,15 @@
 % graphs trees etc
 \usepackage{tikz}
 \usepackage{forest}
+% \usepackage{lmodern}
 % box with padding
-\usepackage{framed}
+% \usepackage{framed}
 % nested bullet lists
 \usepackage{outlines}
 \setlength\FrameSep{0.5em}
 \setlength\OuterFrameSep{\partopsep}
 \title{\includegraphics[scale=0.5]{images/aueb.jpg} \\
-\Large Εργασία }
+\Large \textbf{Εργασία } }
 \author{Παναγιώτης Κάτσος 3180077}
 \date{\today}
 \setlength{\headheight}{24.0pt}
