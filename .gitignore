@@ -5,3 +5,4 @@
 *.fdb_latexmk
 *.synctex.gz
 _minted*
+*.toc
