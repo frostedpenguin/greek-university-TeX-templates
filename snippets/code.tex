@@ -1,0 +1,160 @@
+\documentclass[14pt]{extarticle} % brackets !! BEFORE FONT
+% extra math symbols
+\usepackage{ mathrsfs }
+% this package allows the use of any font size with the \fontsize{14}{14}\selectfont
+% command. 
+\usepackage{anyfontsize}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+% cross out math
+\usepackage[makeroom]{cancel}
+% encoding and language shit
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguages{english}
+%images
+\usepackage{fontspec}
+% setting greek font 
+\newfontfamily\greekfont[Script=Greek]{GFS Neohellenic}
+\newfontfamily\greekfontsf[Script=Greek]{GFS Neohellenic}
+% setting greek math font 
+\usepackage{gfsneohellenicot}
+% show text as it is
+\usepackage{verbatim}
+% setting mono font for minted and verbatim errors
+\newfontfamily{\greekfonttt}{FreeMono}
+% remove annoying page padding
+\usepackage[includeheadfoot,margin=0.5in]{geometry}
+% fancy page header
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{blindtext}
+% responsible for \today 
+\usepackage[useregional]{datetime2}
+% urls and refs in general
+\usepackage{hyperref}
+% images
+\usepackage{graphicx}
+% table color
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+ \pgfplotsset{compat=1.18}
+\usepgfplotslibrary{external}
+% box plots
+\usepgfplotslibrary{statistics}
+
+% hyper link customization etc
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={game theory},
+    pdfpagemode=FullScreen,
+    }
+% for inserting code
+\usepackage{minted}
+% graphs trees etc
+\usepackage{tikz}
+\usepackage{forest}
+% box with padding
+\usepackage{framed}
+% nested bullet lists
+\usepackage{outlines}
+\setlength\FrameSep{0.5em}
+\setlength\OuterFrameSep{\partopsep}
+\setlength{\headheight}{24.0pt}
+\lhead{\today}
+\rhead{Π. Κάτσος}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand\textbullet{\ensuremath{\bullet}}
+\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+% circle node for tikz
+\tikzset{circle_normal/.style={shape=circle, draw, align=center,top color=white, bottom color=black!20, 
+minimum height = 1cm }}
+% minted style and settings
+\usemintedstyle{monokai}
+\definecolor{bg}{HTML}{282828}
+\setminted{bgcolor=bg,frame=lines,framesep=2mm,fontsize=\footnotesize,linenos}
+\begin{document}
+
+\tableofcontents
+\clearpage
+\section {syntax highlighting}
+
+\subsection{black theme}
+\begin{minted}{typescript}
+const domainAndApplicationErrorDeclaration = (children: any[]): any => {
+  const domainErrorIdentifier = children[1].value;
+  let domainErrorArgs: any;
+  let domainErrorProperties: any;
+  for (let i = 0; i < children.length; i++) {
+    if (children[i].type === 'formalParameterList') {
+      domainErrorArgs = getBitloopsModel(children[i]);
+    }
+    if (children[i].type === 'objectLiteral') {
+      domainErrorProperties = objectLiteral(children[i].children);
+    }
+  }
+  if (Object.keys(domainErrorProperties).length != 2) {
+    throw new TypeError('Domain error: only message and errorId are allowed');
+  }
+  if (!domainErrorProperties.message) {
+    throw new TypeError('Domain error: must have message property');
+  }
+  if (!domainErrorProperties.errorId) {
+    throw new TypeError('Domain error: must have errorId property');
+  }
+  const { message, errorId } = domainErrorProperties;
+  return {
+    key: domainErrorIdentifier,
+    subModel: {
+      message: { [message.type]: message.value },
+      errorId: { [errorId.type]: errorId.value },
+      parameters: domainErrorArgs,
+    },
+  };
+};
+\end{minted} 
+\subsection{light theme}
+\usemintedstyle{tango}
+% white color
+\definecolor{bg}{HTML}{FFFFFF}
+\begin{minted}{cucumber}
+Feature: domainError 
+
+  Scenario: domainError is valid
+    Given A valid domain error string <blString>
+    When I generate the model
+    Then I should get the right model
+
+    Examples:
+      |                    blString              |
+      | DomainError InvalidName (name : string) { message: 'is an invalid name', 
+      errorId: 'e5a0bd82-8ef7-4b1a-ab67-cb83d1d7772fe', } |
+      
+Scenario:  domainError is invalid
+    Given An invalid domain error string <blString>
+    When I generate the model
+    Then I should get an error
+
+    Examples:
+      |                    blString              |
+      | DomainError InvalidName (name: string, hmm: number) {} |
+      | DomainError InvalidName (name: string, hmm: number) {message: 'hello'} |
+\end{minted}
+
+\section{plain text displayed as is }
+\begin{small}
+  \begin{verbatim}
+ iteration : 1 f( X_n+1 ) = 30.78977557 t = 1
+ iteration : 2 f( X_n+1 ) = 118.00537879 t = 0.5
+ iteration : 3 f( X_n+1 ) = 43.37396467 t = 0.25
+ iteration : 4 f( X_n+1 ) = 32.13605707 t = 0.125
+final step size :
+ 0.125
+  \end{verbatim}
+\end{small}
+\end{document}

@@ -1,0 +1,264 @@
+\documentclass[14pt]{extarticle} % brackets !! BEFORE FONT
+% extra math symbols
+\usepackage{ mathrsfs }
+% this package allows the use of any font size with the \fontsize{14}{14}\selectfont
+% command. 
+\usepackage{anyfontsize}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+% cross out math
+\usepackage[makeroom]{cancel}
+% encoding and language shit
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguages{english}
+%images
+\usepackage{fontspec}
+% setting greek font 
+\newfontfamily\greekfont[Script=Greek]{GFS Neohellenic}
+\newfontfamily\greekfontsf[Script=Greek]{GFS Neohellenic}
+% setting greek math font 
+\usepackage{gfsneohellenicot}
+% show text as it is
+\usepackage{verbatim}
+% setting mono font for minted and verbatim errors
+\newfontfamily{\greekfonttt}{FreeMono}
+% remove annoying page padding
+\usepackage[includeheadfoot,margin=0.5in]{geometry}
+% fancy page header
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{blindtext}
+% responsible for \today 
+\usepackage[useregional]{datetime2}
+% urls and refs in general
+\usepackage{hyperref}
+% images
+\usepackage{graphicx}
+% table color
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+ \pgfplotsset{compat=1.18}
+\usepgfplotslibrary{external}
+% box plots
+\usepgfplotslibrary{statistics}
+
+% hyper link customization etc
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={game theory},
+    pdfpagemode=FullScreen,
+    }
+% for inserting code
+\usepackage{minted}
+% graphs trees etc
+\usepackage{tikz}
+\usepackage{forest}
+% box with padding
+\usepackage{framed}
+% nested bullet lists
+\usepackage{outlines}
+\setlength\FrameSep{0.5em}
+\setlength\OuterFrameSep{\partopsep}
+\setlength{\headheight}{24.0pt}
+\lhead{\today}
+\rhead{Π. Κάτσος}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand\textbullet{\ensuremath{\bullet}}
+\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+% circle node for tikz
+\tikzset{circle_normal/.style={shape=circle, draw, align=center,top color=white, bottom color=black!20, 
+minimum height = 1cm }}
+% minted style and settings
+\usemintedstyle{monokai}
+\definecolor{bg}{HTML}{282828}
+\setminted{bgcolor=bg,frame=lines,framesep=2mm,fontsize=\footnotesize}
+\begin{document}
+
+\fontsize{14}{14}\selectfont 
+asdjflaksjflkasdjfklj 
+% tikz node styles
+
+\tikzset{decision/.style={shape=rectangle, rounded corners,
+draw, align=center,top color=white, bottom color=blue!20, 
+minimum height = 1cm , minimum width = 1cm}}
+
+\tikzset{luck/.style={shape=circle, draw, align=center,top color=white, bottom color=red!20, 
+minimum height = 1cm }}
+
+\tableofcontents
+
+\clearpage
+\section{Trees}
+\subsection{Basic}
+\begin{center}
+   \begin{forest}
+     [Application 
+     [workflow [node]]
+     [workflow [node] [node ]]
+     [workflow [ node ] [node ] [node]]]
+   \end{forest} 
+ \end{center}
+ 
+\begin{center}
+  \begin{forest} 
+    for descendants={anchor=west,child anchor=west},
+    grow=east,anchor=east,parent anchor=east,
+    for tree={fill=white, draw=black, edge={->}}
+    [REST ,rotate=90, anchor=south,parent anchor=south
+    [ENVOY,grow=east,rotate=90, anchor=south,parent anchor=south,child
+    anchor=north [ ENGINE ,grow=south, parent anchor=south[REDIS,
+    edge=dashed, child anchor=north]
+    [BigQuery, edge=dashed, child anchor=north][MongoDB, child anchor=north][NATS , grow=south,
+    child anchor=north,parent anchor=south[workflow1, child
+    anchor=north][workflow2, child anchor=north][workflow3, child anchor=north]]]] ] 
+  \end{forest} 
+ \end{center}
+
+\forestset{
+  L1/.style={circle},
+  L2/.style={fill=orange,edge={orange,line width=2pt}},
+  L3/.style={fill=yellow,edge={yellow,line width=2pt}},
+  L4/.style={fill=pink,edge={pink,line width=2pt}},
+}
+\scalebox{0.8}{ \begin{forest}
+    for tree={
+      grow=0,reversed, % tree direction
+      parent anchor=east,child anchor=west, % edge anchors
+      edge={line cap=round},outer sep=+1pt, % edge/node connection
+      rectangle,
+      draw,
+      l sep=10mm % level distance
+    }
+    [1[and,L1
+    [1.1[and,L1
+    [1.1.1]
+    [1.1.2]]]
+    [1.2[and,L1
+    [1.2.1]
+    [1.2.2[and,L1[
+    1.2.2.1]
+    [1.2.2.2]]]
+    [1.2.3[and,L1[
+    1.2.3.1]
+    [1.2.3.2]]]]]
+    [1.3[and,L1[1.3.1][1.3.2]]]    
+    [1.4[and,L1[1.4.1][1.4.2[and,L1[1.4.2.1][1.4.2.2]]]]]
+    [1.5[and,L1[1.5.1][1.5.2]]]
+    [1.6]
+    [1.7]
+    [1.8[and,L1[1.8.1][1.8.2][1.8.3][1.8.4]]]]]
+\end{forest} }
+
+\subsection{Colored}
+\begin{center}
+  \begin{tikzpicture}
+  [
+  level 1/.style = { sibling distance = 5cm, level distance = 2cm},
+  level 2/.style = { sibling distance = 2cm, level distance = 3cm}
+  ]
+  \node[decision]{} 
+    child { node[luck] {}
+      child { node {60}
+      edge from parent node [left] {$\theta_1$}}
+      child { node {60}
+      edge from parent node [left] {$\theta_2$}}
+      child { node {60}
+      edge from parent node [left] {$\theta_3$}}
+      edge from parent node [left] {$\alpha_1$}
+    }
+    child { node[luck] {}
+      child { node {-10}
+      edge from parent node [left] {$\theta_1$}}
+      child { node {40}
+      edge from parent node [left] {$\theta_2$}}
+      child { node {100}
+      edge from parent node [left] {$\theta_3$}}
+    edge from parent node [right] {$\alpha_2$}};
+\end{tikzpicture}
+\end{center}
+\tikzset{edge/.style={near end, above right}}
+\tikzset{edge_r/.style={near end, above right}}
+\tikzset{edge_l/.style={near end, above left}}
+
+\begin{center}
+  \scalebox{0.8}{
+    \begin{forest} 
+      important/.style={draw=red,line width=1.5pt,edge={red,line width=1.5pt,draw,}},
+      [$D_1$,decision 
+      [$L_1$,luck , edge label ={node[edge_l]{$\alpha_1$}}
+      [$D_2$,decision, edge label ={node[edge_l]{2/3}}
+      [25,level distance = 2cm, edge label ={node[edge_l]{$\alpha_3$}}]
+      [30,edge label ={node[edge_r]{$\alpha_4$}}]
+]
+      [$L_3$,luck, edge label ={node[edge_r]{1/3}}
+      [50,edge label ={node[edge_l]{1/2}}]
+      [10,edge label ={node[edge_r]{1/2}}]
+      ]]
+      [$L_2$,luck,important,edge label ={node[edge_r]{$\alpha_2$}}
+      ,edge label ={node[edge_r]{$\alpha_2$}}
+      [80,important,edge label ={node[edge_l]{1/5}}]
+      [20,important,edge label ={node[edge_r]{4/5}}]
+      ]
+      ] 
+    \end{forest}
+  }
+\end{center}
+
+\section{Plots}
+
+\subsection{linear}
+\begin{center}
+  \scalebox{1.5}{ \begin{tikzpicture}
+      \begin{axis}[xlabel=$p_1$,ylabel=$y$,
+        xmin=-1, xmax=1,ymin=-5,ymax=5, axis lines=center, axis equal, legend pos=outer north east,
+        legend style={nodes={anchor=west}}, every axis plot/.append style={ %% these will apply to all plots
+          line width=1pt,
+          domain=-1:1
+        }]
+
+        \addplot[ color=blue,]{-8*x+4};
+
+        \addplot[ color=red,]{3*x-1};
+
+        \addplot[ color=pink,]{0};
+
+        \addplot[ color=yellow,]{6*x-3};
+
+        \addplot[ color=green,]{-3*x+1};
+
+        \legend {
+          $f_1 = -8p_1 +4$,
+          $f_2 = 3p_1  -1$,
+          $f_3 = 0$,
+          $f_4 = 6p_1 - 3$,
+          $f_5 = -3p_1 +1$,
+        };
+    \end{axis}
+\end{tikzpicture} }
+\end{center}
+
+\subsection{box plots} 
+% subsection subsection name (end)
+\begin{center}\begin{tikzpicture}
+  \begin{axis}
+    [
+    ytick={1,2,3},
+    ]
+    \addplot+[
+      boxplot prepared={
+        median=1.3,
+        upper quartile= 4.2,
+        lower quartile= 0.2,
+        upper whisker= 9.0,
+        lower whisker= 0.0
+      },
+      ] coordinates {};
+  \end{axis}
+\end{tikzpicture}\end{center}
+\end{document}

@@ -1,12 +1,13 @@
 \documentclass[14pt]{extarticle} % brackets !! BEFORE FONT
 % extra math symbols
 \usepackage{ mathrsfs }
-% this package eliminates font size errors with the \selectfont{x}{x} command
-% change the font size from the document class to the desired size
-%  8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt available
+% this package allows the use of any font size with the \fontsize{14}{14}\selectfont
+% command. 
 \usepackage{anyfontsize}
 \usepackage{amsmath}
+\usepackage{relsize}
 \usepackage{caption}
+\usepackage{relsize}
 \usepackage{subcaption}
 % cross out math
 \usepackage[makeroom]{cancel}
@@ -14,7 +15,6 @@
 \usepackage{polyglossia}
 \setdefaultlanguage{greek}
 \setotherlanguages{english}
-\setotherlanguages{latin}
 %images
 \usepackage{fontspec}
 % setting greek font 
@@ -43,13 +43,16 @@
 \usepackage{pgfplots}
  \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{external}
+% box plots
+\usepgfplotslibrary{statistics}
+
 % hyper link customization etc
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=magenta,
-    pdftitle={game theory},
+    pdftitle={math template},
     pdfpagemode=FullScreen,
     }
 % for inserting code
@@ -63,10 +66,6 @@
 \usepackage{outlines}
 \setlength\FrameSep{0.5em}
 \setlength\OuterFrameSep{\partopsep}
-\title{\includegraphics[scale=0.5]{images/aueb.jpg} \\
-\Large \textbf{Εργασία } }
-\author{Όνομα ΑΜ}
-\date{\today}
 \setlength{\headheight}{24.0pt}
 \lhead{\today}
 \rhead{author}
@@ -81,22 +80,61 @@ minimum height = 1cm }}
 \usemintedstyle{monokai}
 \definecolor{bg}{HTML}{282828}
 \setminted{bgcolor=bg,frame=lines,framesep=2mm,fontsize=\footnotesize}
-\usepackage{lipsum}
 \begin{document}
-\begin{titlepage}
-  \maketitle
-\end{titlepage}
-\fontsize{14}{14}\selectfont
+\fontsize{14}{12}\selectfont
 \tableofcontents
 \clearpage
-\section{1η Άσκηση}
-\subsection{i)}
-\lipsum[1]
-\subsection{ii)}
-\lipsum[2]
-\section{2η Άσκηση}
-\subsection{}
-\lipsum[3]
-\subsection{ii)}
-\lipsum[4-5]
+\section{symbols}
+\subsection{detixify}
+\href{https://detexify.kirelabs.org/classify.html}{detixify} is a tool that matches your drawings to latex symbols.
+\section{equations}
+\subsection{integrals}
+\[
+  \int_{-1}^{1} \sqrt{(1 + r)* K} * \frac{3}{2} \cdot r^2 \, dr  = 
+  \frac{3}{2} \cdot \sqrt{K}\int_{-1}^{1} \sqrt{(1 + r) }  \cdot r^2 \, dr  = 
+\]
+
+\subsection{sums}
+$f(n) = \mathlarger{\mathlarger{\sum}}_{i=1}^{n}{i^k} = 1^k + 2^k + ... + n^k = O(Ν^k) < O(2^{Ν} )$
+\section {matrices}
+\subsection{square matrix}
+\[
+  \begin{bmatrix}
+    0, 0 & 5,2 & 3, 3 \\
+    2, 4 & 3,3 & 5,1 \\
+    \end{bmatrix}
+ \]
+
+\subsection{parenthesis matrix}
+\[
+  \begin{pmatrix}
+    0, 0 & 5,2 & 3, 3 \\
+    2, 4 & 3,3 & 5,1 \\
+    \end{pmatrix}
+ \]
+ \section{multi line equations}
+ \subsection{plain}
+\begin{align*}
+  &\nabla L(x,y,z; \lambda_1, \lambda_2) = (0,0) \Rightarrow ( - \frac{1}{x + 3} + \lambda_1 + \lambda_2, 
+  - \frac{1}{y+6} + 2 \lambda_1 - \lambda_2)= (0,0)\\
+  & x = \frac{1}{\lambda_1} + \frac{1}{\lambda_2}  - 3 \\
+  & y = \frac{1}{2\lambda_1} - \frac{1}{\lambda_2}  - 6 \\
+  & D(\lambda) = -log(\frac{1}{\lambda_1} + \frac{1}{\lambda_2}) 
+  - log(\frac{1}{2\lambda_1} - \frac{1}{\lambda_2} ) + 
+  \lambda_1(\frac{1}{\lambda_1} + \frac{1}{\lambda_2}  - 3 + \frac{1}{\lambda_1} - \frac{2}{\lambda_2}  - 6  ) = \\  
+\end{align*}
+ \subsection{with crossing}
+ \begin{align*}
+  x &= B_1(y)\\
+  y &= B_2(x)\\
+  x &= 1 + \frac{5y}{2} & \textbf{1}\\
+  y &= \alpha x & \textbf{2} \\ 
+  &\alpha \cdot \textbf{1} + \textbf{2} \Rightarrow\\ 
+  y + \cancel{ \alpha x } &= \cancel{ \alpha x } + \alpha + \frac{5y\alpha}{2}
+  \Rightarrow\\
+  2y &= 2\alpha + 5y\alpha\\
+  ( 2 - 5 \alpha )y &= 2\alpha \Rightarrow\\
+  y &= \frac{ 2\alpha }{ 2 - 5 \alpha }\Rightarrow\\
+  x &= 1 + \frac{ 10\alpha }{ 4 - 10 \alpha }\Rightarrow\\
+\end{align*}
 \end{document}
