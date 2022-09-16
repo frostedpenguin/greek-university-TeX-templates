@@ -93,9 +93,6 @@ INPUT /usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
-INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
-INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
@@ -198,6 +195,16 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/share/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
+INPUT /usr/share/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
+INPUT /usr/share/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
+INPUT /home/panos/.texlive/texmf-var/luatex-cache/generic/fonts/otl/freemono.luc
+INPUT /home/panos/.texlive/texmf-var/luatex-cache/generic/fonts/otl/freemonoboldoblique.luc
+INPUT /home/panos/.texlive/texmf-var/luatex-cache/generic/fonts/otl/freemonobold.luc
+INPUT /home/panos/.texlive/texmf-var/luatex-cache/generic/fonts/otl/freemonooblique.luc
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty

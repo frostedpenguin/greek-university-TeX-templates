@@ -1,11 +1,9 @@
 \documentclass[12pt]{article} % brackets !! BEFORE FONT
 % extra math symbols
-% \usepackage{autoaligne}
 \usepackage{ mathrsfs }
 \usepackage{amsmath}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{verbatim}
 % cross out math
 \usepackage[makeroom]{cancel}
 % encoding and language shit
@@ -21,15 +19,18 @@
 \usepackage{gfsneohellenicot}
 % show text as it is
 \usepackage{verbatim}
-% font for verbatim
-% \setmonofont{DejaVu Sans Mono}
+% this package allows the use of any font size with the \fontsize{14}{14}\selectfont
+% command. 
+\usepackage{anyfontsize}
+% setting mono font for minted and verbatim errors
+\newfontfamily{\greekfonttt}{FreeMono}
 % remove annoying page padding
 \usepackage[includeheadfoot,margin=0.5in]{geometry}
 % fancy page header
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{blindtext}
-% responsible for /today 
+% responsible for \today 
 \usepackage[useregional]{datetime2}
 % urls and refs in general
 \usepackage{hyperref}
@@ -54,9 +55,8 @@
 % graphs trees etc
 \usepackage{tikz}
 \usepackage{forest}
-% \usepackage{lmodern}
 % box with padding
-% \usepackage{framed}
+\usepackage{framed}
 % nested bullet lists
 \usepackage{outlines}
 \setlength\FrameSep{0.5em}
@@ -72,12 +72,18 @@
 \renewcommand\textbullet{\ensuremath{\bullet}}
 \renewcommand{\footrulewidth}{0.5pt}
 \pagestyle{fancy}
+% circle node for tikz
 \tikzset{circle_normal/.style={shape=circle, draw, align=center,top color=white, bottom color=black!20, 
 minimum height = 1cm }}
+% minted style and settings
+\usemintedstyle{monokai}
+\definecolor{bg}{HTML}{282828}
+\setminted{bgcolor=bg,frame=lines,framesep=2mm,fontsize=\footnotesize}
 \begin{document}
 \begin{titlepage}
   \maketitle
 \end{titlepage}
+\fontsize{14}{14}\selectfont
 \section*{1η Άσκηση}
 \subsection*{i)}
 \subsection*{ii)}
