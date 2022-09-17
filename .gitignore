@@ -6,3 +6,6 @@
 *.synctex.gz
 _minted*
 *.toc
+*.nav
+*.snm
+*.vrb
