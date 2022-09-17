@@ -1,4 +1,9 @@
 \documentclass[14pt]{extarticle} % brackets !! BEFORE FONT
+
+%-------------------------------------------------------------------------------
+%				 General packages
+%-------------------------------------------------------------------------------
+
 % extra math symbols
 \usepackage{ mathrsfs }
 % this package eliminates font size errors with the \selectfont{x}{x} command
@@ -40,9 +45,64 @@
 \usepackage{graphicx}
 % table color
 \usepackage[table]{xcolor}
+% graphs trees etc
+\usepackage{tikz}
+\usepackage{forest}
 \usepackage{pgfplots}
  \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{external}
+% box plots
+\usepgfplotslibrary{statistics}
+% for inserting code
+\usepackage{minted}
+% box with padding
+\usepackage{framed}
+% nested bullet lists
+\usepackage{outlines}
+% dummy text
+\usepackage{lipsum}
+% \maketitle configuration
+\usepackage{titling}
+% bigger math symbols
+\usepackage{relsize}
+
+%-------------------------------------------------------------------------------
+%				 Title options
+%-------------------------------------------------------------------------------
+
+\pretitle{
+  \vspace*{1cm}
+  \LARGE
+  \includegraphics[scale=0.5]{images/aueb.jpg}\\[\bigskipamount]
+}
+\posttitle{\vspace*{0.4cm}}
+\title{\Large \textbf{Εργασία }}
+\author{Όνομα ΑΜ}
+\date{\today}
+\setlength{\headheight}{24.0pt}
+\lhead{\today}
+% paper bounds config
+\setlength\FrameSep{0.5em}
+\setlength\OuterFrameSep{\partopsep}
+
+%-------------------------------------------------------------------------------
+%				 Page header and footer
+%-------------------------------------------------------------------------------
+
+\rhead{author}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand\textbullet{\ensuremath{\bullet}}
+\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+
+%-------------------------------------------------------------------------------
+%				 Style options
+%-------------------------------------------------------------------------------
+
+% minted style and settings
+\usemintedstyle{monokai}
+\definecolor{bg}{HTML}{282828}
+\setminted{bgcolor=bg,frame=lines,framesep=2mm,fontsize=\footnotesize}
 % hyper link customization etc
 \hypersetup{
     colorlinks=true,
@@ -52,51 +112,28 @@
     pdftitle={game theory},
     pdfpagemode=FullScreen,
     }
-% for inserting code
-\usepackage{minted}
-% graphs trees etc
-\usepackage{tikz}
-\usepackage{forest}
-% box with padding
-\usepackage{framed}
-% nested bullet lists
-\usepackage{outlines}
-\setlength\FrameSep{0.5em}
-\setlength\OuterFrameSep{\partopsep}
-\title{\includegraphics[scale=0.5]{images/aueb.jpg} \\
-\Large \textbf{Εργασία } }
-\author{Όνομα ΑΜ}
-\date{\today}
-\setlength{\headheight}{24.0pt}
-\lhead{\today}
-\rhead{author}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand\textbullet{\ensuremath{\bullet}}
-\renewcommand{\footrulewidth}{0.5pt}
-\pagestyle{fancy}
-% circle node for tikz
-\tikzset{circle_normal/.style={shape=circle, draw, align=center,top color=white, bottom color=black!20, 
-minimum height = 1cm }}
-% minted style and settings
-\usemintedstyle{monokai}
-\definecolor{bg}{HTML}{282828}
-\setminted{bgcolor=bg,frame=lines,framesep=2mm,fontsize=\footnotesize}
-\usepackage{lipsum}
+% font size
+\fontsize{14}{14}\selectfont
+
+%-------------------------------------------------------------------------------
+%				 Document
+%-------------------------------------------------------------------------------
+
 \begin{document}
+
 \begin{titlepage}
+  \centering
   \maketitle
 \end{titlepage}
-\fontsize{14}{14}\selectfont
-\tableofcontents
-\clearpage
-\section{1η Άσκηση}
-\subsection{i)}
-\lipsum[1]
-\subsection{ii)}
-\lipsum[2]
-\section{2η Άσκηση}
-\subsection{}
-\lipsum[3]
-\subsection{ii)}
-\lipsum[4-5]
+
+\foreach \i in {1,3,...,9} 
+{
+  \section*{\iη Άσκηση}
+  \foreach \j in {1,2}
+  {
+    \subsection*{\romannumeral\j)}
+    \lipsum[\i + \j]
+  }
+
+}
 \end{document}
