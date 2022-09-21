@@ -21,5 +21,12 @@
   <img alt="showcase" src="./images/README/templates-gif.gif" style="width:60%">
 </div>
 
+## Welcome
 
+Welcome to my LaTeX templates it's a pleasure you are checking out this repo and
+I hope you find something useful. 
+I have been using LaTeX for all my assignments for the past 2 years and I have found
+the process of customizing my documents challenging. So now
+that I am officially finishing uni I thought it would be a nice idea to share what I
+have came up with till now. 
 
