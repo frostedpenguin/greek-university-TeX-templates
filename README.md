@@ -25,8 +25,17 @@
 
 Welcome to my LaTeX templates it's a pleasure you are checking out this repo and
 I hope you find something useful. 
+
 I have been using LaTeX for all my assignments for the past 2 years and I have found
 the process of customizing my documents challenging. So now
-that I am officially finishing uni I thought it would be a nice idea to share what I
+that I am officially finishing uni I thought it would be a good idea to share what I
 have came up with till now. 
 
+## Instructions
+
+This project needs luaLaTex with the shell-escape option to
+run.
+If you use a plugin that runs with [__latexmk__](https://mg.readthedocs.io/latexmk.html) (like [ VimTex ](https://github.com/lervag/vimtex)
+for NeoVim or [ LaTeX Workshop ](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) fro visual studio code ) 
+I have already included the `.latexmkrc` in every folder so it should run
+automatically. 
