@@ -5,10 +5,14 @@
 %-------------------------------------------------------------------------------
 
 % extra math symbols
+
 \usepackage{ mathrsfs }
+
 % this package eliminates font size errors with the \selectfont{x}{x} command
 % change the font size from the document class to the desired size
 %  8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt available
+
+
 \usepackage{anyfontsize}
 \usepackage{amsmath}
 \usepackage{caption}
@@ -24,10 +28,12 @@
 \usepackage{fontspec}
 % setting greek font 
 \newfontfamily\greekfont[Script=Greek]{GFS Neohellenic}
+
 \newfontfamily\greekfontsf[Script=Greek]{GFS Neohellenic}
 % setting greek math font 
 \usepackage{gfsneohellenicot}
 % show text as it is
+
 \usepackage{verbatim}
 % setting mono font for minted and verbatim errors
 \newfontfamily{\greekfonttt}{FreeMono}
@@ -70,15 +76,17 @@
 %				 Title options
 %-------------------------------------------------------------------------------
 
-\pretitle{
-  \vspace*{1cm}
-  \LARGE
-  \includegraphics[scale=0.5]{images/aueb.jpg}\\[\bigskipamount]
-}
-\posttitle{\vspace*{0.4cm}}
-\title{\Large \textbf{Πτυχιακή Εργασία}}
+% \pretitle{
+%   \vspace*{1cm}
+%   \LARGE
+%   \includegraphics[scale=0.5]{images/aueb.jpg}\\[\bigskipamount]
+% }
+% \posttitle{\vspace*{0.4cm}}
+% \title{\Large \textbf{Πτυχιακή Εργασία}}
+
 \author{Όνομα ΑΜ}
 \date{\today}
+
 \setlength{\headheight}{24.0pt}
 \lhead{\today}
 % paper bounds config
@@ -120,10 +128,10 @@
 %-------------------------------------------------------------------------------
 
 \begin{document}
-
 \input{titlepage}
 \tableofcontents
 \clearpage
+
 \section {Εισαγωγή}
 \lipsum[1-2]
 \foreach \i in {2,3,...,5} 

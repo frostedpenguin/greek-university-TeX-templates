@@ -9,3 +9,4 @@ _minted*
 *.nav
 *.snm
 *.vrb
+build
