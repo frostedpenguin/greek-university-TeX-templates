@@ -69,7 +69,7 @@ I have already included the `.latexmkrc` in every folder so it should run
 automatically. 
 
 If on the other hand don't wanna go through the hustle of installing LaTeX to
-your machine you can access the project on [overleaf](_https://www.overleaf.com/project/63498ee16d9b477125aa2d8a_).
+your machine you can access the project on [overleaf](https://www.overleaf.com/project/63498ee16d9b477125aa2d8a).
 This is just a _read-only_ link to my project just make sure you create a copy of
 it from the project menu as shown below.
 
